@@ -1,0 +1,13 @@
+#cloud-config
+package_update: true
+packages:
+  - vim
+  - httpd
+write_files:
+  - path: /var/www/html/index.html
+    content: |
+      <html><body><center><h1>Hello. Here is my web page!</h1></center></body></html>
+runcmd:
+  - [ systemctl, daemon-reload ]
+  - [ systemctl, enable, httpd.service ]
+  - [ systemctl, start, --no-block, httpd.service ]

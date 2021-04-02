@@ -1,0 +1,7 @@
+terraform init -> Initialize the directory
+terraform plan -> Generate and show an execution plan
+terraform fmt -> updates configurations in the current directory for easy readability and consistency
+terraform validate -> check and report errors within modules, attribute names, and value types
+terraform apply -> Create infrastructure
+terraform show -> Inspect state
+terraform destroy -> terminates resources defined in your Terraform configuration

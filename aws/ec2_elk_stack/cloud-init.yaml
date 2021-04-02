@@ -1,0 +1,16 @@
+#cloud-config
+package_update: true
+yum_repos:
+  logstash-7.x:
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    autorefresh: true
+    type: rpm-md
+    name: Elastic repository for 7.x packages
+packages:
+  - logstash
+  - vim
+  - java-1.8.0-openjdk
+final_message: "The system is finally up, after $UPTIME seconds"

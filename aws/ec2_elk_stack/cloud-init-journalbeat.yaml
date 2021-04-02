@@ -1,0 +1,19 @@
+#cloud-config
+package_update: true
+yum_repos:
+  elastic-7.x:
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    autorefresh: true
+    type: rpm-md
+    name: Elastic repository for 7.x packages
+packages:
+  - journalbeat
+  - vim
+runcmd:
+  - [ systemctl, daemon-reload ]
+  - [ systemctl, enable, journalbeat.service ]
+  - [ systemctl, start, --no-block, journalbeat.service ]
+final_message: "The system is finally up, after $UPTIME seconds"
